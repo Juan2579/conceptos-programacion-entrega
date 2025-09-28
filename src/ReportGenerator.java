@@ -15,7 +15,7 @@ public class ReportGenerator {
     /**
      * Genera un reporte de vendedores ordenado por dinero recaudado (mayor a
      * menor).
-     * El archivo contiene: NombresVendedor;ApellidosVendedor;DineroRecaudado
+     * El archivo contiene: NombreCompletoVendedor;DineroRecaudado
      * 
      * @param vendedores    Lista de vendedores a incluir en el reporte
      * @param nombreArchivo Nombre del archivo a generar
@@ -32,8 +32,7 @@ public class ReportGenerator {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             for (Vendedor vendedor : vendedores) {
-                writer.write(vendedor.getNombres() + ";" +
-                        vendedor.getApellidos() + ";" +
+                writer.write(vendedor.getNombreCompleto() + ";" +
                         String.format("%.2f", vendedor.getDineroRecaudado()));
                 writer.newLine();
             }
