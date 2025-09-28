@@ -50,7 +50,7 @@ public class GenerateInfoFiles {
     /**
      * Método principal que ejecuta la generación de todos los archivos de prueba.
      * Genera archivos con cantidades predeterminadas para facilitar las pruebas.
-     *
+     * 
      * @param args Argumentos de línea de comandos (no utilizados)
      */
     public static void main(String[] args) {
@@ -90,11 +90,11 @@ public class GenerateInfoFiles {
     /**
      * Crea un archivo de ventas pseudoaleatorio para un vendedor específico.
      * El archivo contiene información del vendedor y sus ventas de productos.
-     *
+     * 
      * Formato del archivo:
      * - Primera línea: TipoDocumento;NúmeroDocumento
      * - Líneas siguientes: IDProducto;CantidadVendida;
-     *
+     * 
      * @param randomSalesCount Cantidad de ventas a generar para el vendedor
      * @param name             Nombre del vendedor (usado para el nombre del
      *                         archivo)
@@ -125,10 +125,10 @@ public class GenerateInfoFiles {
 
     /**
      * Crea un archivo con información pseudoaleatoria de productos.
-     *
+     * 
      * Formato del archivo:
      * IDProducto;NombreProducto;PrecioPorUnidad
-     *
+     * 
      * @param productsCount Número de productos a generar
      */
     public static void createProductsFile(int productsCount) {
@@ -155,10 +155,10 @@ public class GenerateInfoFiles {
     /**
      * Crea un archivo con información pseudoaleatoria de vendedores.
      * La información incluye tipo de documento, número, nombres y apellidos.
-     *
+     * 
      * Formato del archivo:
      * TipoDocumento;NúmeroDocumento;Nombres;Apellidos
-     *
+     * 
      * @param salesmanCount Número de vendedores a generar
      */
     public static void createSalesManInfoFile(int salesmanCount) {
