@@ -61,14 +61,26 @@ public class GenerateInfoFiles {
             createProductsFile(20);
             System.out.println("✓ Archivo de productos generado exitosamente");
 
+            // Generar información de vendedores (nombres, apellidos y documentos)
+            String[] nombresVendedores = new String[10];
+            String[] apellidosVendedores = new String[10];
+            long[] documentosVendedores = new long[10];
+
+            for (int i = 0; i < 10; i++) {
+                nombresVendedores[i] = NOMBRES[random.nextInt(NOMBRES.length)];
+                apellidosVendedores[i] = APELLIDOS[random.nextInt(APELLIDOS.length)] + " " +
+                        APELLIDOS[random.nextInt(APELLIDOS.length)];
+                documentosVendedores[i] = 1000000000L + random.nextInt(100000000);
+            }
+
             // Generar archivo de información de vendedores (10 vendedores)
-            createSalesManInfoFile(10);
+            createSalesManInfoFile(10, nombresVendedores, apellidosVendedores, documentosVendedores);
             System.out.println("✓ Archivo de información de vendedores generado exitosamente");
 
-            // Generar archivos de ventas para cada vendedor (simulando 10 vendedores)
-            for (int i = 1; i <= 10; i++) {
-                String nombreVendedor = NOMBRES[random.nextInt(NOMBRES.length)];
-                long documentoVendedor = 1000000000L + random.nextInt(100000000);
+            // Generar archivos de ventas para cada vendedor usando la misma información
+            for (int i = 0; i < 10; i++) {
+                String nombreVendedor = nombresVendedores[i];
+                long documentoVendedor = documentosVendedores[i];
                 int ventasAleatorias = 5 + random.nextInt(16); // Entre 5 y 20 ventas
 
                 createSalesMenFile(ventasAleatorias, nombreVendedor, documentoVendedor);
@@ -159,20 +171,22 @@ public class GenerateInfoFiles {
      * Formato del archivo:
      * TipoDocumento;NúmeroDocumento;Nombres;Apellidos
      * 
-     * @param salesmanCount Número de vendedores a generar
+     * @param salesmanCount        Número de vendedores a generar
+     * @param nombresVendedores    Array con los nombres de los vendedores
+     * @param apellidosVendedores  Array con los apellidos de los vendedores
+     * @param documentosVendedores Array con los números de documento a usar
      */
-    public static void createSalesManInfoFile(int salesmanCount) {
+    public static void createSalesManInfoFile(int salesmanCount, String[] nombresVendedores,
+            String[] apellidosVendedores, long[] documentosVendedores) {
         String nombreArchivo = "vendedores.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
 
             for (int i = 0; i < salesmanCount; i++) {
                 String tipoDocumento = TIPOS_DOCUMENTO[random.nextInt(TIPOS_DOCUMENTO.length)];
-                // Generar número de documento realista (entre 1.000.000.000 y 1.100.000.000)
-                long numeroDocumento = 1000000000L + random.nextInt(100000000);
-                String nombres = NOMBRES[random.nextInt(NOMBRES.length)];
-                String apellidos = APELLIDOS[random.nextInt(APELLIDOS.length)] + " " +
-                        APELLIDOS[random.nextInt(APELLIDOS.length)];
+                long numeroDocumento = documentosVendedores[i];
+                String nombres = nombresVendedores[i];
+                String apellidos = apellidosVendedores[i];
 
                 writer.write(tipoDocumento + ";" + numeroDocumento + ";" + nombres + ";" + apellidos);
                 writer.newLine();

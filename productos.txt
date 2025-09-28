@@ -1,0 +1,20 @@
+1;Mouse Inalámbrico Logitech;1345791.43
+2;Teclado Mecánico Corsair;1006071.35
+3;Monitor Samsung 24'';1115462.14
+4;Auriculares Sony WH-1000XM4;569870.43
+5;Smartphone iPhone 14;997215.77
+6;Tablet Samsung Galaxy;1440594.52
+7;Impresora HP LaserJet;1908651.06
+8;Disco Duro Externo 1TB;1302535.07
+9;Cámara Web Logitech HD;1826409.42
+10;Parlantes Bluetooth JBL;1040436.56
+11;Cargador Portátil Anker;1840657.2
+12;Cable HDMI 2.0;1929156.34
+13;Memoria USB 64GB;1592794.27
+14;Router WiFi TP-Link;1853475.66
+15;Hub USB-C;1312310.96
+16;Silla Ergonómica Oficina;167378.96
+17;Lámpara LED Escritorio;1157103.35
+18;Soporte para Laptop;251727.78
+19;Mousepad Gaming XL;1170031.83
+20;Laptop Dell Inspiron;1917972.37

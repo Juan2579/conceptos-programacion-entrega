@@ -1,0 +1,10 @@
+Cedula de Extranjeria;1070939638;Francisco;García Fernández
+Cedula de Extranjeria;1029578078;David;Navarro González
+Pasaporte;1061487682;Antonio;Pérez Díaz
+Cedula de Ciudadania;1043095911;Luis;Sánchez López
+Cedula de Ciudadania;1099096020;Mónica;Rodríguez Muñoz
+Cedula de Ciudadania;1015619422;Patricia;Jiménez Moreno
+Cedula de Extranjeria;1050021326;Luis;González Álvarez
+Pasaporte;1093643952;Luis;Álvarez González
+Pasaporte;1081736123;Isabel;López Pérez
+Pasaporte;1077917912;Rafael;Jiménez Hernández
