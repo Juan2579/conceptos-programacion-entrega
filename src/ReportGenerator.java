@@ -1,6 +1,8 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -11,6 +13,15 @@ import java.util.List;
  * especificado.
  */
 public class ReportGenerator {
+
+    // Formateador para usar punto como separador decimal
+    private static final DecimalFormat decimalFormat;
+
+    static {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator('.');
+        decimalFormat = new DecimalFormat("#0.00", symbols);
+    }
 
     /**
      * Genera un reporte de vendedores ordenado por dinero recaudado (mayor a
@@ -33,7 +44,7 @@ public class ReportGenerator {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             for (Vendedor vendedor : vendedores) {
                 writer.write(vendedor.getNombreCompleto() + ";" +
-                        String.format("%.2f", vendedor.getDineroRecaudado()));
+                        decimalFormat.format(vendedor.getDineroRecaudado()));
                 writer.newLine();
             }
         }
@@ -59,7 +70,7 @@ public class ReportGenerator {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             for (Producto producto : productos) {
                 writer.write(producto.getNombre() + ";" +
-                        String.format("%.2f", producto.getPrecio()) + ";" +
+                        decimalFormat.format(producto.getPrecio()) + ";" +
                         producto.getCantidadVendida());
                 writer.newLine();
             }
@@ -89,14 +100,14 @@ public class ReportGenerator {
             totalProductosVendidos += p.getCantidadVendida();
         }
 
-        System.out.println("Total recaudado por todos los vendedores: $" + String.format("%.2f", totalRecaudado));
+        System.out.println("Total recaudado por todos los vendedores: $" + decimalFormat.format(totalRecaudado));
         System.out.println("Total de productos vendidos: " + totalProductosVendidos);
 
         // Mostrar mejor vendedor
         if (!vendedores.isEmpty()) {
             Vendedor mejorVendedor = Collections.max(vendedores, Comparator.comparing(Vendedor::getDineroRecaudado));
             System.out.println("Mejor vendedor: " + mejorVendedor.getNombreCompleto() +
-                    " ($" + String.format("%.2f", mejorVendedor.getDineroRecaudado()) + ")");
+                    " ($" + decimalFormat.format(mejorVendedor.getDineroRecaudado()) + ")");
         }
 
         // Mostrar producto más vendido
